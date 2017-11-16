@@ -162,7 +162,7 @@ void SensorThings::createThing(char* thingDescription)
         client_print_P(header03);
 
         
-        nwClient->print(18+strlen(thingDescription));
+        nwClient->print(28+(2*strlen(thingDescription)));
 
         client_print_P(newline);
         nwClient->print(F("{\"description\":\""));
@@ -235,9 +235,9 @@ void SensorThings::createDatastream(char* datastreamDescription, char* observati
         client_print_P(header02);
         nwClient->print(restfulService);
         client_print_P(header03);
-        nwClient->print(223+strlen(datastreamDescription)+strlen(observationType)+strlen(uomDefinition)+strlen(uomName)+strlen(uomSymbol)+
+        nwClient->print(243+(2*strlen(datastreamDescription))+strlen(observationType)+strlen(uomDefinition)+strlen(uomName)+strlen(uomSymbol)+
                         strlen(obsPropDescription)+strlen(obsPropDefinition)+strlen(obsPropName)+
-                        strlen(sensorDescription)+strlen(sensorMetadata)+strlen(sensorEncodingType));
+                        (2*strlen(sensorDescription))+strlen(sensorMetadata)+strlen(sensorEncodingType));
         client_print_P(newline);
         
         nwClient->print(F("{\"unitOfMeasurement\":{\"name\":\""));
@@ -331,7 +331,7 @@ bool SensorThings::setLocation(char* lat, char* lon){
         client_print_P(header02);
         nwClient->print(restfulService);
         client_print_P(header03);
-        nwClient->print(120+strlen(lat)+strlen(lon));
+        nwClient->print(143+strlen(lat)+strlen(lon));
         //nwClient->print(F("\n\n"));
         client_print_P(newline);
         
