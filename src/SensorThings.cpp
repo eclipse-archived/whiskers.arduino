@@ -83,16 +83,6 @@ SensorThings::SensorThings(Client& _client, char* _server, char* _thingId, char*
     SensorThings(_client, _server, 1883, _thingId, _datastreamId);
 }
 
-SensorThings::SensorThings(Client& _client, char* _restfulService, char* _server, int _port)
-{
-    SensorThings(_client, _restfulService, 80, _server, _port);
-}
-
-SensorThings::SensorThings(Client& _client, char* _restfulService, int _restfulPort, char* _server)
-{
-    SensorThings(_client, _restfulService, _restfulPort, _server, 1883);
-}
-
 SensorThings::SensorThings(Client& _client, char* _restfulService, char* _server)
 {
     SensorThings(_client, _restfulService, 80, _server, 1883);

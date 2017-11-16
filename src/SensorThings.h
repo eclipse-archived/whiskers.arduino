@@ -11,8 +11,6 @@ class SensorThings
 	SensorThings(Client& _client, char* _server, int _port, char* _thingId, char* _datastreamId);
 	SensorThings(Client& _client, char* _server, int _port, char* _datastreamId);
 	SensorThings(Client& _client, char* _restfulService, int _restfulPort, char* _server, int _port);
-	SensorThings(Client& _client, char* _restfulService, char* _server, int _port);
-	SensorThings(Client& _client, char* _restfulService, int _restfulPort, char* _server);
 	SensorThings(Client& _client, char* _restfulService, char* _server);
 	void sendObservation(char* result);
 	void sendObservation(char* result, char* lat, char* lon);
