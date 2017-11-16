@@ -45,6 +45,16 @@ SensorThings::SensorThings()
 {
 }
 
+SensorThings::SensorThings(Client& _client, char* _server, int _port, char* _datastreamId)
+{
+    nwClient = &_client;
+    server = _server;
+    port = _port;
+    client.setClient(*nwClient);
+    client.setServer(server, port);
+    strcpy(datastreamId, _datastreamId);
+}
+
 SensorThings::SensorThings(Client& _client, char* _server, int _port, char* _thingId, char* _datastreamId)
 {
     nwClient = &_client;
@@ -157,6 +167,8 @@ void SensorThings::createThing(char* thingDescription)
         client_print_P(newline);
         nwClient->print(F("{\"description\":\""));
         nwClient->print(thingDescription ) ;
+		nwClient->print(F("\",\"name\":\""));
+        nwClient->print(thingDescription ) ;
         nwClient->print(F("\"}"));
         
         /** Reading HTTP response **/
@@ -236,6 +248,8 @@ void SensorThings::createDatastream(char* datastreamDescription, char* observati
         nwClient->print(uomDefinition);
         nwClient->print(F("\"},\"description\":\"")) ;
         nwClient->print(datastreamDescription) ;
+		nwClient->print(F("\",\"name\":\""));
+        nwClient->print(datastreamDescription ) ;
         nwClient->print(F("\",\"observationType\":\""));
         nwClient->print(observationType);
         nwClient->print(F("\",\"ObservedProperty\":{\"name\":\""));
@@ -246,6 +260,8 @@ void SensorThings::createDatastream(char* datastreamDescription, char* observati
         nwClient->print( obsPropDescription);
         nwClient->print(F("\"},\"Sensor\":{\"description\":\""));
         nwClient->print(sensorDescription);
+		nwClient->print(F("\",\"name\":\""));
+        nwClient->print(sensorDescription ) ;
         nwClient->print(F("\",\"encodingType\":\""));
         nwClient->print(sensorEncodingType);
         nwClient->print(F("\",\"metadata\":\""));
@@ -319,7 +335,7 @@ bool SensorThings::setLocation(char* lat, char* lon){
         //nwClient->print(F("\n\n"));
         client_print_P(newline);
         
-        nwClient->print(F("{\"description\":\"auto-generate\",\"location\":{\"type\":\"Point\",\"coordinates\":[")); 
+        nwClient->print(F("{\"description\":\"auto-generate\",\"name\":\"auto-generate\",\"location\":{\"type\":\"Point\",\"coordinates\":[")); 
         nwClient->print(lon);
         nwClient->print(F(","));
         nwClient->print(lat);
