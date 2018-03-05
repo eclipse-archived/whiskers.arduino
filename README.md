@@ -2,6 +2,8 @@
 
 Whiskers for Arduino is a library for connecting Arduino devices to [OGC SensorThings API](https://en.wikipedia.org/wiki/SensorThings_API). The SensorThings API is an OGC (Open Geospatial Consortium) standard that allows IoT (Internet of Things) devices and their data to be connected; a major goal is to foster a healthy and open IoT ecosystem, as opposed to one dominated by proprietary information silos.
 
+*Thanks to the financial support of Natural Resources Canada [GeoConnections](http://www.nrcan.gc.ca/earth-sciences/geomatics/canadas-spatial-data-infrastructure/10783)*.
+
 
 ## Using Eclipse Whiskers for Ardunio
 
